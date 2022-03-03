@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <img [src]="artistAlbum.artist.images | sinfoto" style="max-height: 10rem;  border-radius:50%; border: 5px solid white;" alt="Card image cap">
+        </div>
+        <div class="col-8 border-bottom">
+            <h3>{{artistAlbum.artist.name}}</h3>
+            <a href="{{artistAlbum.artist.url}}" target="_blank" class="btn btn-outline-success"> Open Spotify </a>
+            <button class="btn btn-outline-danger" (click)="backClicked()"> Back </button>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="container">
+            <table class="table text-white">
+                <caption> Artists Songs </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Photography</th>
+                    <th scope="col">Album</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Popularity</th>
+                    <th scope="col">Listen</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let song of artistAlbum.songs">
+                    <th scope="row"><img [src]="song.images | sinfoto" style="max-height: 5rem;" alt="Card image cap"></th>
+                    <td>{{song.albumName}}</td>
+                    <td>{{song.name}}</td>
+                    <td>{{song.popularity}}</td>
+                    <td><iframe [src]="song.uri | domseguro:'https://open.spotify.com/embed?uri='" width="300" height="80" title="Song"></iframe></td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>

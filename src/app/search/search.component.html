@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <form class="form">
+                    <label for="buscador">Buscar artista</label><br/>
+                    <input placeholder="Buscar artista..." name="buscador" [(ngModel)]="search" (ngModelChange)="searchArtist($event)">
+                </form>
+            </div>
+        </div>
+        <div class="col border-bottom" *ngIf="search">
+            <h3 class="text-white">{{search}}</h3>
+        </div>
+    </div>
+    <loading [loading]="loading"></loading>
+    <div class="row mt-5" *ngIf="showAlbums">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let album of albums">
+            <albums [albums]="album" [showArtist]="true"></albums>
+        </div>
+    </div>
+    <div class="row" *ngIf="error">
+        <h3> Sorry, an error occurred during your request!</h3>
+    </div>
+</div>

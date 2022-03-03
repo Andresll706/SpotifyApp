@@ -16,7 +16,7 @@ export class SpotiService {
     return new Promise(function (resolve, reject) {
       // do the usual XHR stuff
       var req = new XMLHttpRequest();
-      req.open('post', "http://accounts.spotify.com/api/token", false);
+      req.open('post', "https://accounts.spotify.com/api/token", false);
       //NOW WE TELL THE SERVER WHAT FORMAT OF POST REQUEST WE ARE MAKING
       req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
